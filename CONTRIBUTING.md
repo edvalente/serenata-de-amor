@@ -22,6 +22,12 @@ A lot of discussions about ideas take place in the [Issues](https://github.com/d
 
 ### Local Installation Environment (without Docker)
 
+#### Video tutorial
+
+[![Installing serenata-de-amor](http://img.youtube.com/vi/g9hmMFVp4rs/0.jpg)](http://www.youtube.com/watch?v=g9hmMFVp4rs)
+
+#### Tutorial
+
 The recommended way of setting your environment up is with [Anaconda](https://www.continuum.io/), a Python distribution with useful packages for Data Science.
 
 The project uses Python 3 (specified in the `python=3` bit of the commands below). [Download Anaconda](https://www.continuum.io/downloads) and create an _environment_ for the project.
@@ -70,12 +76,17 @@ $ source /usr/local/var/pyenv/versions/anaconda3-4.1.1/bin/activate serenata_de_
 
 ### Docker Installation Environment
 
+#### Video tutorial
+
+[![Installing serenata-de-amor with Docker](http://img.youtube.com/vi/3XwvZbCvZKQ/0.jpg)](http://www.youtube.com/watch?v=3XwvZbCvZKQ)
+
+#### Tutorial
+
 You can user [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/install/) to have a working environment:
 
 1. Create your `config.ini` file from the example: `$ cp config.ini.example config.ini`
 1. Build the tags with `$ docker-compose build`
 1. Start the environment (it might take a while, hurry not): `$ docker-compose up -d`.
-1. You can start Jupyter Notebooks and access them at [localhost:8888](http://localhost:8888): `$ docker-compose run --service-ports research jupyter notebook`
 
 If you want to access the console:
 
@@ -168,6 +179,7 @@ fetch_latest_backup('data/')
 
 ##### Electoral information
 1. `research/src/fetch_tse_data.py` downloads datasets files from TSE website and organize them in the dataset `research/data/YYYY-MM-DD-tse-candidates.xz`.
+1. `research/src/fetch_campaign_donations.py` downloads datasets with data from donation to electoral campaigns (donations for candidates, committees and parties) in three files `research/data/YYYY-MM-DD-donations-candidates.xz`, `research/data/YYYY-MM-DD-donations-committees.xz` and `research/data/YYYY-MM-DD-donations-parties.xz`
 
 ##### Companies and Non-Profit Entities with sanctions (CEIS, CEPIM and CNEP).
 1. `research/src/fetch_federal_sanctions.py` downloads all three datasets files (CEIS, CEPIM and CNEP) from official source. The script gets the lastest version available for each dataset, unpacks, translates columns to english and saves them into `research/data/`. The files are named as follows:
@@ -202,7 +214,9 @@ All files are named with a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) da
 1. `research/data/YYYY-MM-DD-congressperson-details.xz` contains the birth date, gender and civil name of congresspeople.
 1. `research/data/YYYY-MM-DD-brazilian-cities.csv` contains information about all Brazilian cities (e.g. city code, state and name).
 1. `research/data/YYYY-MM-DD-receipts-texts.xz` OCR of nearly 200k reimbursement receipts using Google's Cloud Vision API, for more information see the documentation on [docs/receipts-ocr.md](docs/receipts-ocr.md)
-
+1. `research/data/YYYY-MM-DD-donations-candidates.xz` contais data about donations to candidates since the 2010 election
+1. `research/data/YYYY-MM-DD-donations-committees.xz` contais data about donations to electoral committees since the 2010 election
+1. `research/data/YYYY-MM-DD-donations-parties.xz` contais data about donations to political parties since the 2010 election
 
 ## Four moments
 
